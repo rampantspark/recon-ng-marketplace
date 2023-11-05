@@ -18,6 +18,7 @@ class Module(BaseModule, ResolverMixin, ThreadingMixin):
             ("sanitize", True, True, "mask sensitive data in the report"),
             ("customer", None, True, "use customer name in the report header"),
             ("creator", None, True, "use creator name in the report footer"),
+            ("links", None, True, "generate internal links for table items"),
             (
                 "filename",
                 os.path.join(BaseModule.workspace, "results.md"),
