@@ -65,8 +65,9 @@ class Module(BaseModule, ResolverMixin, ThreadingMixin):
         # Iterate through rows and append them as Markdown table rows
         for row in rows:
             row_values = [
-                self.html_escape(
-                    str(x)) if x is not None else "" for x in row]
+                self.html_escape(f"[[{str(x) if x is not None else ''}]]")
+            for x in row
+                    ]
             markdown_content += "| " + " | ".join(row_values) + " |\n"
 
         markdown_content += "\n"
